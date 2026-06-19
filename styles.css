@@ -115,6 +115,11 @@ nav a:hover {
   color: var(--green);
 }
 
+nav a.active,
+nav a[aria-current="page"] {
+  color: var(--green);
+}
+
 .menu-button {
   display: none;
   place-items: center;
@@ -185,27 +190,6 @@ nav a:hover {
   border-radius: 50%;
   object-fit: cover;
   object-position: center top;
-}
-
-.uvr-badge {
-  position: absolute;
-  right: -18px;
-  bottom: 28px;
-  display: grid;
-  place-items: center;
-  width: clamp(84px, 10vw, 112px);
-  aspect-ratio: 1;
-  border-radius: 50%;
-  background: var(--green);
-  box-shadow: 0 24px 44px rgba(0, 0, 0, 0.28);
-}
-
-.uvr-badge img {
-  width: 76%;
-  height: auto;
-  padding: 8px;
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.96);
 }
 
 .hero-copy {
@@ -416,6 +400,26 @@ h3 {
   gap: clamp(20px, 5vw, 76px);
   padding: 30px 0;
   border-bottom: 1px solid var(--line);
+  scroll-margin-top: 88px;
+}
+
+.pub-year {
+  display: inline-flex;
+  width: fit-content;
+  height: fit-content;
+  color: var(--green-dark);
+  font-size: 0.8rem;
+  font-weight: 900;
+  text-decoration: none;
+}
+
+.pub-year:hover,
+.pub-year:focus-visible {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: rgba(16, 61, 41, 0.28);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
 }
 
 .pub-body h3 {
@@ -431,6 +435,11 @@ h3 {
   color: var(--muted);
   font-size: 0.86rem;
   font-weight: 650;
+}
+
+.pub-body strong {
+  color: var(--ink);
+  font-weight: 900;
 }
 
 .pub-links {
@@ -591,17 +600,6 @@ footer {
   .portrait-wrap {
     width: min(70vw, 270px);
     border-width: 7px;
-  }
-
-  .uvr-badge {
-    right: -4px;
-    bottom: 16px;
-    width: 82px;
-  }
-
-  .uvr-badge img {
-    padding: 7px;
-    border-radius: 10px;
   }
 
   .hero h1 {
