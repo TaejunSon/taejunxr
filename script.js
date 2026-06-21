@@ -8,6 +8,8 @@
       return document.querySelector(link.getAttribute("href"));
     })
     .filter(Boolean);
+  const publicationFilters = Array.from(document.querySelectorAll("[data-publication-filter]"));
+  const publications = Array.from(document.querySelectorAll("[data-publication-year]"));
 
   function setMenu(open) {
     if (!header || !menuButton) return;
@@ -28,6 +30,25 @@
         setActiveNav(event.target.getAttribute("href").slice(1));
         setMenu(false);
       }
+    });
+  }
+
+  publicationFilters.forEach(function (button) {
+    button.addEventListener("click", function () {
+      filterPublications(button.dataset.publicationFilter || "all");
+    });
+  });
+
+  function filterPublications(year) {
+    publicationFilters.forEach(function (button) {
+      const active = button.dataset.publicationFilter === year;
+      button.classList.toggle("active", active);
+      button.setAttribute("aria-pressed", active ? "true" : "false");
+    });
+
+    publications.forEach(function (publication) {
+      const visible = year === "all" || publication.dataset.publicationYear === year;
+      publication.classList.toggle("is-hidden", !visible);
     });
   }
 

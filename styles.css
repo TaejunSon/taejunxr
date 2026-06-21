@@ -209,7 +209,7 @@ nav a[aria-current="page"] {
 .hero h1 {
   margin: 18px 0 0;
   color: var(--white);
-  font-size: clamp(2.55rem, 5.8vw, 5.4rem);
+  font-size: clamp(1.3rem, 2.9vw, 2.7rem);
   line-height: 0.94;
   letter-spacing: 0;
 }
@@ -258,6 +258,20 @@ nav a[aria-current="page"] {
 .education-section .section-head,
 .publication-section .section-head {
   display: block;
+}
+
+.publication-section .section-head {
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.publication-section .section-head::after {
+  content: "";
+  display: block;
+  width: 72px;
+  height: 3px;
+  margin: 24px auto 0;
+  background: rgba(16, 61, 41, 0.1);
 }
 
 .education-section .section-label,
@@ -351,6 +365,47 @@ h3 {
   border-top: 1px solid var(--line);
 }
 
+.publication-filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  max-width: 1180px;
+  margin: 2px auto 40px;
+}
+
+.pub-filter {
+  min-width: 88px;
+  height: 44px;
+  padding: 0 28px;
+  border: 1px solid rgba(16, 61, 41, 0.36);
+  border-radius: 999px;
+  color: var(--green-dark);
+  background: transparent;
+  font: inherit;
+  font-size: 0.92rem;
+  font-weight: 900;
+  cursor: pointer;
+  transition:
+    color 160ms ease,
+    background 160ms ease,
+    border-color 160ms ease,
+    transform 160ms ease;
+}
+
+.pub-filter:hover,
+.pub-filter:focus-visible,
+.pub-filter.active,
+.pub-filter[aria-pressed="true"] {
+  color: var(--white);
+  background: var(--green-dark);
+  border-color: var(--green-dark);
+}
+
+.pub-filter:hover {
+  transform: translateY(-1px);
+}
+
 .education-item {
   display: grid;
   grid-template-columns: 170px minmax(0, 1fr) minmax(220px, 0.34fr);
@@ -403,6 +458,10 @@ h3 {
   scroll-margin-top: 88px;
 }
 
+.publication.is-hidden {
+  display: none;
+}
+
 .pub-year {
   display: inline-flex;
   width: fit-content;
@@ -423,11 +482,12 @@ h3 {
 }
 
 .pub-body h3 {
-  max-width: 900px;
+  max-width: none;
   margin: 0;
   color: var(--ink);
-  font-size: clamp(0.98rem, 1.55vw, 1.28rem);
-  line-height: 1.18;
+  font-size: clamp(0.86rem, 0.95vw, 0.96rem);
+  font-weight: 850;
+  line-height: 1.2;
 }
 
 .pub-body p {
@@ -624,6 +684,30 @@ footer {
   .publication {
     gap: 12px;
     padding: 24px 0;
+  }
+
+  .publication-section .section-head {
+    margin-bottom: 20px;
+  }
+
+  .publication-section .section-head::after {
+    width: 56px;
+    margin-top: 18px;
+  }
+
+  .publication-filters {
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 28px;
+    overflow-x: auto;
+    padding-bottom: 2px;
+  }
+
+  .pub-filter {
+    min-width: 64px;
+    height: 36px;
+    padding: 0 18px;
+    flex: 0 0 auto;
   }
 
   .contact {
