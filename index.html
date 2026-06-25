@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ko">
+<html lang="ko" data-theme="light">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,6 +8,16 @@
       name="description"
       content="Taejun Son, M.S. student and research assistant at KAIST UVR Lab. Computer Vision, HCI, AR/VR."
     >
+    <script>
+      (function () {
+        try {
+          var theme = localStorage.getItem("taejun-theme");
+          document.documentElement.dataset.theme = theme === "original" ? "original" : "light";
+        } catch (error) {
+          document.documentElement.dataset.theme = "light";
+        }
+      })();
+    </script>
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
@@ -25,17 +35,23 @@
         <span>Taejun Son</span>
       </a>
 
-      <button class="menu-button" type="button" aria-label="Open menu" aria-controls="site-nav" aria-expanded="false">
-        <span></span>
-        <span></span>
-      </button>
+      <div class="header-actions">
+        <nav id="site-nav" aria-label="Primary navigation">
+          <a href="#news">News</a>
+          <a href="#education">Education</a>
+          <a href="#publications">Publications</a>
+          <a href="#contact">Contact</a>
+        </nav>
 
-      <nav id="site-nav" aria-label="Primary navigation">
-        <a href="#news">News</a>
-        <a href="#education">Education</a>
-        <a href="#publications">Publications</a>
-        <a href="#contact">Contact</a>
-      </nav>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to original design">
+          <span data-theme-toggle-label>Original</span>
+        </button>
+
+        <button class="menu-button" type="button" aria-label="Open menu" aria-controls="site-nav" aria-expanded="false">
+          <span></span>
+          <span></span>
+        </button>
+      </div>
     </header>
 
     <main>

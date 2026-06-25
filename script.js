@@ -3,6 +3,8 @@
   const menuButton = document.querySelector(".menu-button");
   const nav = document.querySelector("#site-nav");
   const navLinks = nav ? Array.from(nav.querySelectorAll('a[href^="#"]')) : [];
+  const themeToggle = document.querySelector("[data-theme-toggle]");
+  const themeToggleLabel = document.querySelector("[data-theme-toggle-label]");
   const sections = navLinks
     .map(function (link) {
       return document.querySelector(link.getAttribute("href"));
@@ -10,6 +12,7 @@
     .filter(Boolean);
   const publicationFilters = Array.from(document.querySelectorAll("[data-publication-filter]"));
   const publications = Array.from(document.querySelectorAll("[data-publication-year]"));
+  const themeStorageKey = "taejun-theme";
 
   function setMenu(open) {
     if (!header || !menuButton) return;
@@ -29,6 +32,39 @@
       if (event.target instanceof HTMLAnchorElement) {
         setActiveNav(event.target.getAttribute("href").slice(1));
         setMenu(false);
+      }
+    });
+  }
+
+  function applyTheme(theme) {
+    const normalizedTheme = theme === "original" ? "original" : "light";
+    const isOriginal = normalizedTheme === "original";
+    document.documentElement.dataset.theme = normalizedTheme;
+
+    if (themeToggle) {
+      themeToggle.setAttribute("aria-pressed", isOriginal ? "true" : "false");
+      themeToggle.setAttribute(
+        "aria-label",
+        isOriginal ? "Switch to light design" : "Switch to original design",
+      );
+    }
+
+    if (themeToggleLabel) {
+      themeToggleLabel.textContent = isOriginal ? "Light" : "Original";
+    }
+  }
+
+  if (themeToggle) {
+    applyTheme(document.documentElement.dataset.theme);
+
+    themeToggle.addEventListener("click", function () {
+      const nextTheme = document.documentElement.dataset.theme === "original" ? "light" : "original";
+      applyTheme(nextTheme);
+
+      try {
+        localStorage.setItem(themeStorageKey, nextTheme);
+      } catch (error) {
+        // Theme switching still works without persisted storage.
       }
     });
   }

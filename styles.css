@@ -100,6 +100,12 @@ a {
   stroke-width: 2;
 }
 
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: clamp(14px, 2vw, 28px);
+}
+
 nav {
   display: flex;
   align-items: center;
@@ -118,6 +124,38 @@ nav a:hover {
 nav a.active,
 nav a[aria-current="page"] {
   color: var(--green);
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 36px;
+  padding: 0 14px;
+  border: 1px solid var(--line-dark);
+  border-radius: 999px;
+  color: var(--green-2);
+  background: rgba(247, 255, 249, 0.04);
+  font: inherit;
+  font-size: 0.75rem;
+  font-weight: 850;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+}
+
+.theme-toggle::before {
+  content: "";
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.theme-toggle:hover,
+.theme-toggle:focus-visible {
+  border-color: var(--green);
+  color: var(--white);
 }
 
 .menu-button {
@@ -559,6 +597,186 @@ address a {
   text-decoration-color: rgba(145, 236, 192, 0.34);
 }
 
+html[data-theme="light"] {
+  color-scheme: light;
+}
+
+html[data-theme="light"] body {
+  color: #090c0a;
+  background: #ffffff;
+}
+
+html[data-theme="light"] body::selection {
+  color: #ffffff;
+  background: #0b7f4a;
+}
+
+html[data-theme="light"] .site-header {
+  border-bottom: 1px solid rgba(7, 12, 9, 0.1);
+  background: rgba(255, 255, 255, 0.86);
+}
+
+html[data-theme="light"] .logo,
+html[data-theme="light"] nav {
+  color: #0c100d;
+}
+
+html[data-theme="light"] .logo-mark {
+  background: #0c7f4b;
+}
+
+html[data-theme="light"] .logo-face {
+  fill: #ffffff;
+}
+
+html[data-theme="light"] .logo-hair,
+html[data-theme="light"] .logo-glasses {
+  fill: #070b08;
+}
+
+html[data-theme="light"] .logo-bridge,
+html[data-theme="light"] .logo-smile {
+  stroke: #070b08;
+}
+
+html[data-theme="light"] nav a {
+  color: rgba(9, 12, 10, 0.64);
+}
+
+html[data-theme="light"] nav a:hover,
+html[data-theme="light"] nav a.active,
+html[data-theme="light"] nav a[aria-current="page"] {
+  color: #0c7f4b;
+}
+
+html[data-theme="light"] .theme-toggle {
+  border-color: rgba(7, 12, 9, 0.14);
+  color: #0c7f4b;
+  background: #ffffff;
+  box-shadow: 0 10px 24px rgba(7, 12, 9, 0.06);
+}
+
+html[data-theme="light"] .theme-toggle:hover,
+html[data-theme="light"] .theme-toggle:focus-visible {
+  border-color: #0c7f4b;
+  color: #070b08;
+}
+
+html[data-theme="light"] .menu-button {
+  border-color: rgba(7, 12, 9, 0.14);
+  color: #070b08;
+  background: #ffffff;
+}
+
+html[data-theme="light"] .hero {
+  background: #ffffff;
+  border-bottom: 1px solid rgba(7, 12, 9, 0.08);
+}
+
+html[data-theme="light"] .portrait-wrap {
+  background:
+    linear-gradient(#ffffff, #ffffff) padding-box,
+    linear-gradient(145deg, #070b08, #13a763 48%, rgba(7, 12, 9, 0.16)) border-box;
+  box-shadow: 0 26px 70px rgba(7, 12, 9, 0.1);
+}
+
+html[data-theme="light"] .portrait-wrap::after {
+  border-color: rgba(7, 12, 9, 0.1);
+}
+
+html[data-theme="light"] .eyebrow,
+html[data-theme="light"] .section-label {
+  color: #0c8e52;
+}
+
+html[data-theme="light"] .hero h1,
+html[data-theme="light"] .section h2,
+html[data-theme="light"] .contact h2,
+html[data-theme="light"] .news-item h3,
+html[data-theme="light"] .education-item h3,
+html[data-theme="light"] .education-meta,
+html[data-theme="light"] .pub-body h3,
+html[data-theme="light"] .pub-body strong {
+  color: #070b08;
+}
+
+html[data-theme="light"] .lead {
+  color: rgba(7, 12, 9, 0.78);
+}
+
+html[data-theme="light"] .hero-links a,
+html[data-theme="light"] .pub-links span,
+html[data-theme="light"] .pub-links a,
+html[data-theme="light"] address a,
+html[data-theme="light"] .education-item time,
+html[data-theme="light"] .publication time,
+html[data-theme="light"] .pub-year {
+  color: #0c7f4b;
+}
+
+html[data-theme="light"] .hero-links a,
+html[data-theme="light"] .pub-links a,
+html[data-theme="light"] address a {
+  border-color: rgba(12, 127, 75, 0.28);
+  text-decoration-color: rgba(12, 127, 75, 0.28);
+}
+
+html[data-theme="light"] .hero-links a:hover,
+html[data-theme="light"] .pub-year:hover,
+html[data-theme="light"] .pub-year:focus-visible {
+  color: #070b08;
+}
+
+html[data-theme="light"] .news-section,
+html[data-theme="light"] .education-section,
+html[data-theme="light"] .publication-section,
+html[data-theme="light"] .contact {
+  color: #070b08;
+  background: #ffffff;
+}
+
+html[data-theme="light"] .news-list,
+html[data-theme="light"] .education-list,
+html[data-theme="light"] .publication-list,
+html[data-theme="light"] address {
+  border-color: rgba(7, 12, 9, 0.1);
+}
+
+html[data-theme="light"] .news-list {
+  scrollbar-color: #0c7f4b rgba(7, 12, 9, 0.06);
+}
+
+html[data-theme="light"] .news-item,
+html[data-theme="light"] .education-item,
+html[data-theme="light"] .publication {
+  border-color: rgba(7, 12, 9, 0.1);
+}
+
+html[data-theme="light"] .news-item p,
+html[data-theme="light"] .education-item p,
+html[data-theme="light"] .pub-body p {
+  color: rgba(7, 12, 9, 0.58);
+}
+
+html[data-theme="light"] .publication-section .section-head::after {
+  background: rgba(7, 12, 9, 0.1);
+}
+
+html[data-theme="light"] .pub-filter {
+  border-color: rgba(12, 127, 75, 0.34);
+  color: #0c7f4b;
+  background: #ffffff;
+}
+
+html[data-theme="light"] .pub-filter:hover,
+html[data-theme="light"] .pub-filter:focus-visible,
+html[data-theme="light"] .pub-filter.active,
+html[data-theme="light"] .pub-filter[aria-pressed="true"] {
+  color: #ffffff;
+  background: #0c7f4b;
+  border-color: #0c7f4b;
+}
+
 footer {
   display: flex;
   align-items: center;
@@ -627,6 +845,12 @@ footer {
       transform 160ms ease;
   }
 
+  html[data-theme="light"] nav {
+    border-color: rgba(7, 12, 9, 0.12);
+    background: rgba(255, 255, 255, 0.97);
+    box-shadow: 0 18px 38px rgba(7, 12, 9, 0.1);
+  }
+
   .site-header.menu-open nav {
     opacity: 1;
     pointer-events: auto;
@@ -650,6 +874,16 @@ footer {
   .logo-mark {
     width: 34px;
     height: 34px;
+  }
+
+  .header-actions {
+    gap: 10px;
+  }
+
+  .theme-toggle {
+    height: 34px;
+    padding: 0 11px;
+    font-size: 0.72rem;
   }
 
   .hero {
