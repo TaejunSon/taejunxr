@@ -422,6 +422,10 @@ h3 {
   font-weight: 750 !important;
 }
 
+.education-field {
+  white-space: nowrap;
+}
+
 .publication {
   display: grid;
   grid-template-columns: 170px minmax(0, 1fr);
